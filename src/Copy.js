@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-import './Mycss.css';
+import { WiThermometer, WiHumidity, WiStrongWind, WiAlien } from 'react-icons/wi';
 
 const WeatherWidget = () => {
     const [weatherData, setWeatherData] = useState(null);
@@ -37,10 +36,10 @@ const WeatherWidget = () => {
             {weatherData ? (
                 <div>
                     <h2>{weatherData.name}</h2>
-                    <p><span style ={{color:'red'}}>Temperature:</span> {weatherData.main && weatherData.main.temp}°C</p>
-                    <p><span style ={{color:'red'}}>Humidity:</span> {weatherData.main && weatherData.main.humidity}%</p>
-                    <p><span style ={{color:'red'}}>Wind Speed:</span> {weatherData.wind && weatherData.wind.speed} m/s</p>
-                    <p><span style ={{color:'red'}}>Description:</span> {weatherData.weather && weatherData.weather[0].description}</p>
+                    <p><WiThermometer /> Temperature: {weatherData.main && weatherData.main.temp}°C</p>
+                    <p><WiHumidity /> Humidity: {weatherData.main && weatherData.main.humidity}%</p>
+                    <p><WiStrongWind /> Wind Speed: {weatherData.wind && weatherData.wind.speed} m/s</p>
+                    <p><WiAlien /> {weatherData.weather && weatherData.weather[0].description}</p>
                 </div>
             ) : (
                 <p>No Data Available</p>
